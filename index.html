@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>مشروع الشخصيات التاريخية</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:"Arial",sans-serif;
+  background:#020817;
+  color:white;
+  overflow:hidden;
+}
+
+/* Blue Neon Background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-50%;
+  background:
+    radial-gradient(circle at 50% 50%,#064cff55,transparent 35%),
+    radial-gradient(circle at 20% 20%,#00d9ff33,transparent 25%),
+    radial-gradient(circle at 80% 80%,#0066ff33,transparent 25%);
+  animation:bg 8s infinite alternate;
+  z-index:-2;
+}
+
+@keyframes bg{
+  from{transform:rotate(0deg) scale(1);}
+  to{transform:rotate(8deg) scale(1.15);}
+}
+
+/* Stars */
+.stars{
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(#fff 1px,transparent 1px),
+    radial-gradient(#00d9ff 1px,transparent 1px);
+  background-size:80px 80px,120px 120px;
+  opacity:.35;
+  animation:stars 15s linear infinite;
+  z-index:-1;
+}
+
+@keyframes stars{
+  to{background-position:300px 200px,-200px 300px;}
+}
+
+.page{
+  display:none;
+  height:100vh;
+  width:100%;
+  padding:50px;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  animation:enter .8s ease;
+}
+
+.page.active{
+  display:flex;
+}
+
+@keyframes enter{
+  from{
+    opacity:0;
+    transform:perspective(1000px) rotateX(-15deg) translateY(50px);
+  }
+  to{
+    opacity:1;
+    transform:perspective(1000px) rotateX(0) translateY(0);
+  }
+}
+
+h1{
+  font-size:60px;
+  color:#fff;
+  text-shadow:
+    0 0 10px #00d9ff,
+    0 0 30px #0066ff,
+    0 0 60px #0066ff;
+  margin-bottom:25px;
+}
+
+h2{
+  font-size:40px;
+  color:#00eaff;
+  text-shadow:0 0 20px #008cff;
+  margin-bottom:25px;
+}
+
+p{
+  max-width:900px;
+  font-size:23px;
+  line-height:2;
+  color:#e9faff;
+}
+
+.card{
+  width:min(900px,90%);
+  padding:40px;
+  border:1px solid #00d9ff;
+  border-radius:25px;
+  background:rgba(0,20,60,.65);
+  box-shadow:
+    0 0 20px #006eff,
+    inset 0 0 30px #004cff22;
+  transform-style:preserve-3d;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotateY(0deg);}
+  50%{transform:translateY(-15px) rotateY(2deg);}
+}
+
+.name{
+  font-size:28px;
+  color:#00eaff;
+  margin-top:20px;
+  text-shadow:0 0 15px #00eaff;
+}
+
+button{
+  margin:12px;
+  padding:15px 30px;
+  border:1px solid #00eaff;
+  border-radius:30px;
+  background:#031b46;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 0 15px #008cff;
+  transition:.3s;
+}
+
+button:hover{
+  background:#006cff;
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 0 30px #00eaff;
+}
+
+.controls{
+  position:fixed;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  color:#8eefff;
+  font-size:16px;
+}
+
+.number{
+  position:absolute;
+  top:20px;
+  left:25px;
+  color:#00eaff;
+  font-size:18px;
+}
+
+.timeline{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.mini{
+  padding:18px;
+  width:180px;
+  border:1px solid #008cff;
+  border-radius:18px;
+  background:#031638aa;
+  box-shadow:0 0 15px #006eff;
+  transition:.4s;
+}
+
+.mini:hover{
+  transform:perspective(500px) rotateY(15deg) translateY(-10px);
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<!-- الصفحة 1 -->
+<section class="page active">
+  <div class="number">01</div>
+  <div class="card">
+    <h1>الشخصيات التاريخية</h1>
+    <h2>من تاريخ المغرب والأندلس</h2>
+    <p>
+      مشروع تعريفي حول أربع شخصيات بارزة،
+      مع التعريف بأهم أعمالها والأحداث المرتبطة بها.
+    </p>
+
+    <div class="timeline">
+      <div class="mini">يوسف بن تاشفين</div>
+      <div class="mini">معركة الزلاقة</div>
+      <div class="mini">محمد بن تومرت</div>
+      <div class="mini">ابن رشد</div>
+    </div>
+
+    <div class="name">إعداد: محمد أمين الغلال</div>
+  </div>
+</section>
+
+<!-- الصفحة 2 -->
+<section class="page">
+  <div class="number">02</div>
+  <div class="card">
+    <h2>يوسف بن تاشفين</h2>
+    <p>
+      يوسف بن تاشفين قائد دولة المرابطين، عاش في القرن الخامس
+      الهجري، وساهم في توحيد مناطق واسعة من المغرب والأندلس.
+      عُرف بقوته في القيادة وبناء الدولة وتنظيم الجيش.
+    </p>
+
+    <div class="timeline">
+      <div class="mini">المرابطون</div>
+      <div class="mini">توحيد المغرب</div>
+      <div class="mini">الأندلس</div>
+      <div class="mini">القيادة</div>
+    </div>
+
+    <button onclick="go(0)">الرئيسية</button>
+    <button onclick="go(2)">معركة الزلاقة</button>
+  </div>
+</section>
+
+<!-- الصفحة 3 -->
+<section class="page">
+  <div class="number">03</div>
+  <div class="card">
+    <h2>معركة الزلاقة</h2>
+    <p>
+      وقعت معركة الزلاقة سنة 1086م في الأندلس،
+      بين جيش المرابطين بقيادة يوسف بن تاشفين
+      وقوات قشتالة بقيادة ألفونسو السادس.
+      وكانت من المعارك المهمة في تاريخ الأندلس.
+    </p>
+
+    <div class="timeline">
+      <div class="mini">1086م</div>
+      <div class="mini">الأندلس</div>
+      <div class="mini">المرابطون</div>
+      <div class="mini">قشتالة</div>
+    </div>
+
+    <button onclick="go(1)">يوسف بن تاشفين</button>
+    <button onclick="go(3)">محمد بن تومرت</button>
+  </div>
+</section>
+
+<!-- الصفحة 4 -->
+<section class="page">
+  <div class="number">04</div>
+  <div class="card">
+    <h2>محمد بن تومرت</h2>
+    <p>
+      محمد بن تومرت شخصية دينية وسياسية مغربية من القرن السادس
+      الهجري، ارتبط اسمه بتأسيس الحركة الموحدية.
+      دعا إلى إصلاح ديني وسياسي، وكان له تأثير كبير في تاريخ المغرب.
+    </p>
+
+    <div class="timeline">
+      <div class="mini">الموحدون</div>
+      <div class="mini">الإصلاح</div>
+      <div class="mini">المغرب</div>
+      <div class="mini">القرن 6هـ</div>
+    </div>
+
+    <button onclick="go(2)">الزلاقة</button>
+    <button onclick="go(4)">ابن رشد</button>
+  </div>
+</section>
+
+<!-- الصفحة 5 -->
+<section class="page">
+  <div class="number">05</div>
+  <div class="card">
+    <h2>ابن رشد</h2>
+    <p>
+      أبو الوليد محمد بن أحمد بن رشد، فيلسوف وطبيب وفقيه
+      أندلسي بارز. اهتم بالفلسفة والطب والفقه،
+      وترك مؤلفات كان لها تأثير في الفكر الإسلامي والأوروبي.
+    </p>
+
+    <div class="timeline">
+      <div class="mini">الفلسفة</div>
+      <div class="mini">الطب</div>
+      <div class="mini">الفقه</div>
+      <div class="mini">الأندلس</div>
+    </div>
+
+    <button onclick="go(3)">محمد بن تومرت</button>
+    <button onclick="go(5)">الخاتمة</button>
+  </div>
+</section>
+
+<!-- الصفحة 6 -->
+<section class="page">
+  <div class="number">06</div>
+  <div class="card">
+    <h2>الخاتمة</h2>
+    <p>
+      تُظهر هذه الشخصيات والأحداث جانباً مهماً من تاريخ المغرب
+      والأندلس، من خلال القيادة والسياسة والعلم والفكر.
+      ويساعد التعرف عليها على فهم جزء من التراث التاريخي
+      والحضاري للمنطقة.
+    </p>
+
+    <h2 style="margin-top:30px;">شكراً على المشاهدة</h2>
+
+    <div class="name">إعداد: محمد أمين الغلال</div>
+
+    <button onclick="go(0)">العودة إلى البداية</button>
+  </div>
+</section>
+
+<div class="controls">
+  اضغط على SPACE للانتقال بين الصفحات
+</div>
+
+<script>
+let current=0;
+const pages=document.querySelectorAll(".page");
+
+function go(n){
+  pages[current].classList.remove("active");
+  current=n;
+  pages[current].classList.add("active");
+}
+
+document.addEventListener("keydown",function(e){
+  if(e.code==="Space"){
+    e.preventDefault();
+    go((current+1)%pages.length);
+  }
+
+  if(e.code==="ArrowLeft"){
+    go((current-1+pages.length)%pages.length);
+  }
+
+  if(e.code==="ArrowRight"){
+    go((current+1)%pages.length);
+  }
+});
+</script>
+
+</body>
+</html>
